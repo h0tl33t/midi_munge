@@ -1,0 +1,9 @@
+<h1>Enter a URL or Upload a MIDI File</h1>
+
+<%= simple_form_for midi do |f| %>
+  <%= f.input :name %>
+  <%= f.file_field :file %>
+  <%= f.input :file_url, as: :string %>
+
+  <%= f.submit 'Munge!' %>
+<% end %>

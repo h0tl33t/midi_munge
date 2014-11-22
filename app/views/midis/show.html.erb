@@ -1,0 +1,4 @@
+<h1><%= midi.name %></h1>
+<div>
+  <%= simple_format JSON.pretty_generate(midi.munged_format) if midi.munged_format? %>
+</div>
