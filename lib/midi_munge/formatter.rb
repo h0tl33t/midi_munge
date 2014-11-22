@@ -2,13 +2,6 @@ module MidiMunge
   class Formatter < Struct.new(:file)
     delegate :bpm, :ppqn, to: :sequence
 
-    def format
-      {
-        bpm: bpm,
-        tracks: tracks.map(&:json)
-      }
-    end
-
     def sequence
       @sequence ||= MIDI::Sequence.new.tap do |sequence|
         sequence.read(file)
@@ -17,6 +10,13 @@ module MidiMunge
 
     def tracks
       @tracks ||= sequence.tracks.map { |track| Track.new(track, bpm, ppqn) }
+    end
+
+    def format
+      {
+        bpm:    bpm,
+        tracks: tracks.map(&:json)
+      }
     end
 
     private
