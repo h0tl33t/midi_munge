@@ -4,7 +4,6 @@ class MidisController < ApplicationController
   end
 
   def create
-    binding.pry
     @midi = Midi.new(midi_params)
 
     if midi.save
@@ -16,6 +15,10 @@ class MidisController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html {}
+      format.json { render json: midi.munged_format }
+    end
   end
 
   private
@@ -28,4 +31,9 @@ class MidisController < ApplicationController
     @midi ||= Midi.find(params[:id])
   end
   helper_method :midi
+
+  def midis
+    @midis ||= Midi.last(10)
+  end
+  helper_method :midis
 end

@@ -1,4 +1,6 @@
 <h1><%= midi.name %></h1>
+<p><%= link_to 'Pure JSON', midi_path(midi, format: :json) %></p>
+<p><%= link_to 'Home', new_midi_path %></p>
 <div>
-  <%= simple_format JSON.pretty_generate(midi.munged_format) if midi.munged_format? %>
+  <%= simple_format JSON.pretty_generate(midi.munged_format) unless midi.munged_format.nil? %>
 </div>

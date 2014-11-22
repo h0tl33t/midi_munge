@@ -7,3 +7,10 @@
 
   <%= f.submit 'Munge!' %>
 <% end %>
+
+<h2>Latest Munged MIDIs</h2>
+<ul>
+  <% midis.each do |m| %>
+    <li><%= link_to m.name, m %></li>
+  <% end %>
+</ul>
