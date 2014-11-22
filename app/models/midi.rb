@@ -11,4 +11,10 @@ class Midi < ActiveRecord::Base
   validates_property :ext, of: :file, in: VALID_EXTENSIONS
 
   dragonfly_accessor :file
+
+  def munged_format
+    read_attribute(:munged_format) || { name: name }.merge(MidiMunge::Formatter.new(file.file).format).tap do |format|
+      update_attributes(munged_format: format)
+    end
+  end
 end

@@ -10,7 +10,9 @@ module MidiMunge
     end
 
     def sequence
-      @sequence ||= MIDI::Sequence.new.read(file)
+      @sequence ||= MIDI::Sequence.new.tap do |sequence|
+        sequence.read(file)
+      end
     end
 
     def tracks
