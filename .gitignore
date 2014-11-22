@@ -5,5 +5,8 @@
 /log/*.log
 /tmp
 
+# Local Dragonfly Uploads
+/public/system
+
 # Sensitive Files
 /config/database.yml
