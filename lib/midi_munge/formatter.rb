@@ -30,14 +30,14 @@ module MidiMunge
         @notes ||= track.events.select { |event| event.is_a? MIDI::NoteOn }.map do |note|
           {
             note: note.note,
-            miliseconds_from_start: calculate_miliseconds_from_start(note.time_from_start)
+            milliseconds_from_start: calculate_milliseconds_from_start(note.time_from_start)
           }
         end
       end
 
       private
 
-      def calculate_miliseconds_from_start(tick_value)
+      def calculate_milliseconds_from_start(tick_value)
         tick_value / ((ppqn * bpm) / 60000)
       end
     end
