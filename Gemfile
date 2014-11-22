@@ -6,6 +6,7 @@ gem 'rails', '4.1.8'
 gem 'pg'
 gem 'dragonfly'
 gem 'simple_form'
+gem 'midilib'
 
 # FED-Related
 gem 'jquery-rails'

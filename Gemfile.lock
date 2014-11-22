@@ -65,6 +65,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
+    midilib (2.0.4)
     mime-types (2.4.3)
     mini_portile (0.6.1)
     minitest (5.4.3)
@@ -153,6 +154,7 @@ DEPENDENCIES
   dragonfly
   factory_girl_rails
   jquery-rails
+  midilib
   pg
   pry
   rails (= 4.1.8)
