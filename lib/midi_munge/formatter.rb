@@ -29,7 +29,7 @@ module MidiMunge
       def notes
         @notes ||= track.events.select { |event| event.is_a? MIDI::NoteOn }.map do |note|
           {
-            note: note.note,
+            note: MidiNotes::VALUES.fetch(note.note),
             milliseconds_from_start: calculate_milliseconds_from_start(note.time_from_start)
           }
         end
